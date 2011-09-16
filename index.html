@@ -1,23 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="stylesheets/style.css" />
-<script src="http://code.jquery.com/jquery-1.6.1.min.js"></script>
-<script src="scripts/game.js"></script>
-
-
-<script type="text/javascript">
-	$(document).ready(function() {
-		var engine = new GameEngine();
-		var player = new Player(400,300);
-		engine.addPlayer(player);
-		engine.start();
-	});
-</script>
+	<title>meteors</title>
+	<meta charset="utf-8">
+	
+	<link href="stylesheets/style.css" rel="stylesheet" type="text/css">
+	<script src="http://code.jquery.com/jquery-1.6.1.min.js"></script>
+	<script src="scripts/game.js"></script>
+	
+	
 </head>
 <body>
-	<canvas id="gamecanvas" width="800" height="600"></canvas>
-
-	
+	<div id="game">
+		<div id="gameUI">
+			<div id="gameIntro">
+				<h1>Meteors</h1>
+				<p>
+					Click start and then any key to play. <br />
+					Use left and right cursor to avoid the evil meteors. <br />
+					May the gimmicks be with you.
+				</p>
+				<p><a id="gamePlay" class="button" href="">Start</a></p>
+			</div>
+			<div id="gameStats">
+				<p>Score: <span class="gameScore"></span></p>
+				<p><a class="gameReset" href="">Reset</a></p>
+			</div>
+			<div id="gameComplete">
+				<h1>Game over!</h1>
+				<p>Your points: <span class="gameScore"></span>
+				<p><a class="gameReset button" href="">Play again</a></p>
+			</div>
+		</div>
+		<canvas id="gameCanvas" width="800" height="600">
+			<!-- No canvas working here -->
+		</canvas>
+	</div>
 </body>
 </html>

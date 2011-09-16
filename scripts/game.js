@@ -1,3 +1,40 @@
+window.requestAnimFrame = (function(){
+      return  window.requestAnimationFrame       ||
+              window.webkitRequestAnimationFrame ||
+              window.mozRequestAnimationFrame    ||
+              window.oRequestAnimationFrame      ||
+              window.msRequestAnimationFrame     ||
+              function(/* function */ callback, /* DOMElement */ element){
+                window.setTimeout(callback, 1000 / 60);
+              };
+})();
+/*
+function GameEngine() {
+    this.entities = [];
+    this.ctx = null;
+    
+    this.timer = new Timer();
+    this.stats = new Stats();
+	
+    this.surfaceWidth = null;
+    this.surfaceHeight = null;
+    this.halfSurfaceWidth = null;
+    this.halfSurfaceHeight = null;
+}
+
+GameEngine.prototype.init = function(ctx) {
+    this.ctx = ctx;
+    this.surfaceWidth = this.ctx.canvas.width;
+    this.surfaceHeight = this.ctx.canvas.height;
+    this.halfSurfaceWidth = this.surfaceWidth/2;
+    this.halfSurfaceHeight = this.surfaceHeight/2;
+    
+	this.startInput();
+    //document.body.appendChild(this.stats.domElement);
+    
+    console.log('game initialized');
+}
+
 function GameEngine() {
 
 	var canvas = $("#gamecanvas");
@@ -127,31 +164,9 @@ Player.prototype.draw = function(ctx) {
 };
 
 
-(function(){
 
-    // chrome shipped without the time arg in m10
-    var timeundefined = false;
-    if (window.webkitRequestAnimationFrame){
-        webkitRequestAnimationFrame(function(time){
-            timeundefined = (time == undefined);
-        });
-    }
 
-    window.requestAnimFrame = (function(){
-      return window.requestAnimationFrame ||
-              (window.webkitRequestAnimationFrame && !timeundefined) ||
-              window.mozRequestAnimationFrame ||
-              window.oRequestAnimationFrame ||
-              window.msRequestAnimationFrame ||
-              function(callback, element){
-                window.setTimeout(function(){
-                    callback(+new Date);
-                }, 1000 / 60);
-              };
-    })();
-
-})();
-
+*/
 	
 
 
