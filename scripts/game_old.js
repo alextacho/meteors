@@ -12,22 +12,14 @@ window.requestAnimFrame = (function(){
 function GameEngine() {
     this.entities = [];
     this.ctx = null;
-    this.playGame = null;
     
-   // this.timer = new Timer();
-    //this.stats = new Stats();
+    this.timer = new Timer();
+    this.stats = new Stats();
 	
     this.surfaceWidth = null;
     this.surfaceHeight = null;
     this.halfSurfaceWidth = null;
     this.halfSurfaceHeight = null;
-    
-   	this.player = null;
-	this.lastUpdateTimestamp = null;
-	this.deltaTime = null;
-
-	this.meteors = null;
-
 }
 
 GameEngine.prototype.init = function(ctx) {
@@ -37,42 +29,27 @@ GameEngine.prototype.init = function(ctx) {
     this.halfSurfaceWidth = this.surfaceWidth/2;
     this.halfSurfaceHeight = this.surfaceHeight/2;
     
-   	this.ui = $("#gameUI");
-    this.uiIntro = $("#gameIntro");
-    this.uiStats = $("#gameStats");
- 	this.uiComplete = $("#gameComplete");
- 	this.uiPlay = $("#gamePlay");
- 	this.uiReset = $(".gameReset");
- 	this.uiScore = $(".gameScore");
-	
-	this.uiStats.hide();
- 	this.uiComplete.hide();
-		
-//	this.startInput();
-    //document.body.appendChild(this.stats.domElement);
 	this.startInput();
+    //document.body.appendChild(this.stats.domElement);
+    
     console.log('game initialized');
 }
 
-GameEngine.prototype.startInput = function() {
-    console.log('Starting input');
-	
-	var that = this;
-	this.uiPlay.click(function(e) {
- 		e.preventDefault();
- 		that.uiIntro.hide();
-		that.start();
- 	});
- 	
-    this.uiReset.click(function(e) {
- 		e.preventDefault();
- 		that.uiComplete.hide();
-		that.start();
- 	});
-    
-    console.log('Input started');
-}
+function GameEngine() {
 
+	var canvas = $("#gamecanvas");
+	var context = canvas.get(0).getContext("2d");
+		
+	var canvasWidth = canvas.width();
+	var canvasHeight = canvas.height();
+	
+	this.ctx = context;
+	this.player = null;
+	this.lastUpdateTimestamp = null;
+	this.deltaTime = null;
+	
+	console.log("GameEngine started");
+};
 
 GameEngine.prototype.addPlayer = function(myplayer) {
 	this.player = myplayer;
@@ -80,12 +57,6 @@ GameEngine.prototype.addPlayer = function(myplayer) {
 
 GameEngine.prototype.start = function() {
 	console.info("starting game");
-	
-	this.uiScore.html("0");
-	this.uiStats.show();
-	
-	this.playGame = false;
-	
 	var that = this;
 	(function gameLoop() {
 		that.loop();
@@ -192,20 +163,10 @@ Player.prototype.draw = function(ctx) {
 	ctx.fillRect(this.x+this.halfWidth, this.y-this.halfHeight, this.width, this.height);
 };
 
-function MeteorControl(engine) {
-	engine.meteors = new Array();
-}
-
-function Meteor(x, y, radius, vX) {
-	this.x = x;
-	this.y = y;
-	this.radius = radius;
-	this.vX = vX;
-
-};
 
 
 
+*/
 	
 
 

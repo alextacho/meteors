@@ -7,7 +7,21 @@
 	<link href="stylesheets/style.css" rel="stylesheet" type="text/css">
 	<script src="http://code.jquery.com/jquery-1.6.1.min.js"></script>
 	<script src="scripts/game.js"></script>
+	<script type="text/javascript">
 	
+		$(document).ready(function() {
+		
+			var canvas = $("#gameCanvas");
+			var context = canvas.get(0).getContext("2d");
+			
+			var game = new GameEngine();
+			game.init(context);
+			var player = new Player(GameEngine.halfSurfaceWidth, 550);
+			game.addPlayer(player);
+			
+		});
+	
+	</script>
 	
 </head>
 <body>
